@@ -53,23 +53,29 @@ export function DownloaderForm() {
 
   const hasPreview = Boolean(meta?.thumbnail_url)
 
-  const onDownload = (type: "mp4" | "mp3") => {
-    // Replace with your API integration (e.g., fetch('/api/download', { ... }))
-    console.log("[v0] Download requested:", {
-      url,
-      type,
-      videoQuality,
-      audioQuality,
-    })
-    if (!isLikelyYouTube(url)) {
-      toast({ title: "Invalid link", description: "Please paste a valid YouTube URL." })
-      return
-    }
-    toast({
-      title: `Preparing ${type.toUpperCase()}…`,
-      description: "Connecting to SSA backend…",
-    })
+const onDownload = (type: "mp4" | "mp3") => {
+  if (!isLikelyYouTube(url)) {
+    toast({ title: "Invalid link", description: "Please paste a valid YouTube URL." })
+    return
   }
+
+  // Extract video ID
+  const videoId = url.split('v=')[1]?.split('&')[0] || url.split('youtu.be/')[1];
+  
+  if (videoId) {
+    // Open working download service
+    window.open(`https://ssyoutube.com/watch?v=${videoId}`, '_blank');
+    toast({
+      title: `Download started!`,
+      description: "Check the new tab for your download",
+    });
+  } else {
+    toast({
+      title: "Download error",
+      description: "Could not process YouTube URL",
+    });
+  }
+}
 
   const inputHelpText = useMemo(() => {
     if (!url) return "Example: https://www.youtube.com/watch?v=dQw4w9WgXcQ"
