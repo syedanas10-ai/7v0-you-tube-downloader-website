@@ -59,14 +59,29 @@ const onDownload = (type: "mp4" | "mp3") => {
     return
   }
 
-  // Use loader.to API - very reliable
-  const format = type === 'mp4' ? 'mp4' : 'mp3';
-  window.open(`https://loader.to/api/download?url=${encodeURIComponent(url)}&format=${format}`, '_blank');
+  // Extract video ID
+  const videoId = url.split('v=')[1]?.split('&')[0] || url.split('youtu.be/')[1];
   
-  toast({
-    title: `Downloading ${type.toUpperCase()}...`,
-    description: "Your file is being processed",
-  });
+  if (videoId) {
+    // Try different services that don't redirect
+    const downloadServices = [
+      `https://ytmp3.cc/en13/?v=${videoId}`,  // Direct MP3/MP4 download
+      `https://9convert.com/en9/download-youtube-videos#url=https://youtube.com/watch?v=${videoId}`,
+      `https://yt5s.com/en23/?q=https://youtube.com/watch?v=${videoId}`
+    ];
+    
+    // Open the first service
+    window.open(downloadServices[0], '_blank');
+    toast({
+      title: `Download started!`,
+      description: "Your download will begin shortly",
+    });
+  } else {
+    toast({
+      title: "Download error",
+      description: "Could not process YouTube URL",
+    });
+  }
 }
 
   const inputHelpText = useMemo(() => {
