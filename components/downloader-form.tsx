@@ -53,33 +53,55 @@ export function DownloaderForm() {
 
   const hasPreview = Boolean(meta?.thumbnail_url)
 
-const onDownload = (type: "mp4" | "mp3") => {
+const onDownload = async (type: "mp4" | "mp3") => {
   if (!isLikelyYouTube(url)) {
     toast({ title: "Invalid link", description: "Please paste a valid YouTube URL." })
     return
   }
 
-  // Extract video ID
-  const videoId = url.split('v=')[1]?.split('&')[0] || url.split('youtu.be/')[1];
-  
-  if (videoId) {
-    // Try different services that don't redirect
-    const downloadServices = [
-      `https://ytmp3.cc/en13/?v=${videoId}`,  // Direct MP3/MP4 download
-      `https://9convert.com/en9/download-youtube-videos#url=https://youtube.com/watch?v=${videoId}`,
-      `https://yt5s.com/en23/?q=https://youtube.com/watch?v=${videoId}`
-    ];
-    
-    // Open the first service
-    window.open(downloadServices[0], '_blank');
+  try {
+    // Show processing toast
     toast({
-      title: `Download started!`,
-      description: "Your download will begin shortly",
+      title: "Processing video...",
+      description: "Please wait while we process your download",
     });
-  } else {
+
+    // Call YOUR Render backend
+    const response = await fetch(`https://railway7.onrender.com/download?url=${encodeURIComponent(url)}&format=${type}&quality=${type === 'mp4' ? videoQuality : audioQuality}`);
+    
+    const result = await response.json();
+
+    if (result.success) {
+      toast({
+        title: "Download ready!",
+        description: "Your video has been processed successfully",
+      });
+
+      // If you want actual file download, add this:
+      if (result.downloadUrl) {
+        // Create invisible download link
+        const a = document.createElement('a');
+        a.href = result.downloadUrl;
+        a.download = `video.${type}`;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+
+    } else {
+      toast({
+        title: "Download failed",
+        description: result.error || "Please try again later",
+        variant: "destructive"
+      });
+    }
+
+  } catch (error) {
     toast({
-      title: "Download error",
-      description: "Could not process YouTube URL",
+      title: "Connection error",
+      description: "Failed to connect to download service",
+      variant: "destructive"
     });
   }
 }
