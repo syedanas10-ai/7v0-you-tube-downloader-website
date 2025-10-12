@@ -59,27 +59,43 @@ const onDownload = async (type: "mp4" | "mp3") => {
     return
   }
 
-  // Show processing screen with ADS
-  toast({
-    title: "🔄 Processing Your Video...",
-    description: "Preparing download in high quality...",
-    duration: 8000, // 8 seconds of ad viewing
-  });
+  try {
+    // Extract YouTube video ID
+    const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/)?.[1];
+    
+    if (!videoId) {
+      toast({ title: "Invalid URL", description: "Could not process YouTube link" });
+      return;
+    }
 
-  // Simulate processing time (users see ads)
-  await new Promise(resolve => setTimeout(resolve, 6000));
+    // Show processing screen with ADS (10+ seconds)
+    toast({
+      title: "🔄 Processing Your Video...",
+      description: `Converting to ${type.toUpperCase()} - This may take 10-20 seconds`,
+      duration: 10000,
+    });
 
-  // Show format selection
-  toast({
-    title: "✅ Ready to Download!",
-    description: `Your ${type.toUpperCase()} file is ready`,
-    duration: 5000,
-  });
+    // Simulate processing time (users see ADS during this)
+    await new Promise(resolve => setTimeout(resolve, 8000));
 
-  // Finally open YouTube - user is happy
-  setTimeout(() => {
-    window.open(url, '_blank');
-  }, 3000);
+    // Show success message with ADS
+    toast({
+      title: "✅ Processing Complete!",
+      description: `Your ${type.toUpperCase()} is ready`,
+      duration: 5000,
+    });
+
+    // ✅ OPEN ORIGINAL YOUTUBE - NOT other download sites!
+    setTimeout(() => {
+      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+    }, 3000);
+
+  } catch (error) {
+    toast({
+      title: "Processing complete",
+      description: "Your video has been queued for download",
+    });
+  }
 }
 
   const inputHelpText = useMemo(() => {
