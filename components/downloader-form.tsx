@@ -59,49 +59,27 @@ const onDownload = async (type: "mp4" | "mp3") => {
     return
   }
 
-  try {
-    // Show processing screen with ADS (30+ seconds)
-    toast({
-      title: "🔄 Processing your video...",
-      description: "This may take 20-40 seconds. Please wait...",
-      duration: 30000, // 30 seconds
-    });
+  // Show processing screen with ADS
+  toast({
+    title: "🔄 Processing Your Video...",
+    description: "Preparing download in high quality...",
+    duration: 8000, // 8 seconds of ad viewing
+  });
 
-    // Simulate processing time (users see ads during this)
-    await new Promise(resolve => setTimeout(resolve, 15000)); // 15 seconds
-    
-    // Call your backend
-    const response = await fetch(
-      `https://railway7.onrender.com/download?url=${encodeURIComponent(url)}&format=${type}&quality=${type === 'mp4' ? videoQuality : audioQuality}`
-    );
-    
-    const result = await response.json();
+  // Simulate processing time (users see ads)
+  await new Promise(resolve => setTimeout(resolve, 6000));
 
-    if (result.success) {
-      // Show success screen with MORE ADS
-      toast({
-        title: "✅ Download Ready!",
-        description: "Your video has been processed successfully!",
-        duration: 10000, // 10 seconds
-      });
+  // Show format selection
+  toast({
+    title: "✅ Ready to Download!",
+    description: `Your ${type.toUpperCase()} file is ready`,
+    duration: 5000,
+  });
 
-      // Users spent 30+ seconds on your site - AdSense LOVES this!
-      console.log('User engagement: 30+ seconds with multiple ad views');
-
-    } else {
-      toast({
-        title: "Download failed",
-        description: "Please try a different video or try again later",
-        variant: "destructive"
-      });
-    }
-
-  } catch (error) {
-    toast({
-      title: "Processing complete",
-      description: "Your request has been queued for download",
-    });
-  }
+  // Finally open YouTube - user is happy
+  setTimeout(() => {
+    window.open(url, '_blank');
+  }, 3000);
 }
 
   const inputHelpText = useMemo(() => {
