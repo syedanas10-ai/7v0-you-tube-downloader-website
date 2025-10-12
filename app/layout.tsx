@@ -1,29 +1,31 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { GeistMono } from "geist/font/mono"
-import { Analytics } from "@vercel/analytics/next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { Suspense } from "react"
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "SSA YT-MP4/MP3 Downloader",
-  description: "Fast and Free YouTube to MP4/MP3 Downloader by SSA.",
-  generator: "v0.app",
+  title: 'YouTube to MP4 Converter - Free HD Video Download | SSA',
+  description: 'Download YouTube videos as MP4/MP3 in 4K, 1080p, 2K quality. Fast, free, no registration required.',
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en" className={`${inter.variable} ${GeistMono.variable} dark antialiased`}>
-      <body className="font-sans">
-        <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
+    <html lang="en">
+      <head>
+        {/* ✅ CORRECT AdSense Code */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3305001830130873"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className={inter.className}>
+        {children}
       </body>
     </html>
   )
