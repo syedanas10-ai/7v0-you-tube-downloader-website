@@ -39,6 +39,7 @@ export function DownloaderForm() {
   const [url, setUrl] = useState("")
   const [videoQuality, setVideoQuality] = useState("1080")
   const [audioQuality, setAudioQuality] = useState("320")
+  const [isDownloading, setIsDownloading] = useState(false)
 
   const shouldFetch = url.length > 10 && isLikelyYouTube(url)
 
@@ -53,50 +54,26 @@ export function DownloaderForm() {
 
   const hasPreview = Boolean(meta?.thumbnail_url)
 
-const onDownload = async (type: "mp4" | "mp3") => {
-  if (!isLikelyYouTube(url)) {
-    toast({ title: "Invalid link", description: "Please paste a valid YouTube URL." })
-    return
-  }
-
-  try {
-    // Extract YouTube video ID
-    const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/)?.[1];
-    
-    if (!videoId) {
-      toast({ title: "Invalid URL", description: "Could not process YouTube link" });
-      return;
+  const downloadVideo = () => {
+    if (!isLikelyYouTube(url)) {
+      toast({ title: "Invalid link", description: "Please paste a valid YouTube URL." })
+      return
     }
-
-    // Show processing screen with ADS (10+ seconds)
-    toast({
-      title: "🔄 Processing Your Video...",
-      description: `Converting to ${type.toUpperCase()} - This may take 10-20 seconds`,
-      duration: 10000,
-    });
-
-    // Simulate processing time (users see ADS during this)
-    await new Promise(resolve => setTimeout(resolve, 8000));
-
-    // Show success message with ADS
-    toast({
-      title: "✅ Processing Complete!",
-      description: `Your ${type.toUpperCase()} is ready`,
-      duration: 5000,
-    });
-
-    // ✅ OPEN ORIGINAL YOUTUBE - NOT other download sites!
-    setTimeout(() => {
-      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
-    }, 3000);
-
-  } catch (error) {
-    toast({
-      title: "Processing complete",
-      description: "Your video has been queued for download",
-    });
+    const encodedURL = encodeURIComponent(url)
+    const q = videoQuality || "360"
+    window.location.href = `/api/download?type=video&url=${encodedURL}&quality=${q}`
   }
-}
+
+  const downloadAudio = () => {
+    if (!isLikelyYouTube(url)) {
+      toast({ title: "Invalid link", description: "Please paste a valid YouTube URL." })
+      return
+    }
+    const encodedURL = encodeURIComponent(url)
+    // map kbps to low/medium/high to match the backend interface
+    const aq = audioQuality === "128" ? "low" : audioQuality === "192" ? "medium" : "high"
+    window.location.href = `/api/download?type=audio&url=${encodedURL}&quality=${aq}`
+  }
 
   const inputHelpText = useMemo(() => {
     if (!url) return "Example: https://www.youtube.com/watch?v=dQw4w9WgXcQ"
@@ -107,7 +84,7 @@ const onDownload = async (type: "mp4" | "mp3") => {
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label htmlFor="yt-url" className="text-sm">
+        <Label htmlFor="videoURL" className="text-sm">
           YouTube link
         </Label>
         <div
@@ -117,7 +94,7 @@ const onDownload = async (type: "mp4" | "mp3") => {
           )}
         >
           <Input
-            id="yt-url"
+            id="videoURL"
             inputMode="url"
             placeholder="Paste your YouTube link here"
             value={url}
@@ -177,27 +154,25 @@ const onDownload = async (type: "mp4" | "mp3") => {
 
       <div className="flex flex-col sm:flex-row gap-3">
         <Button
-          onClick={() => onDownload("mp4")}
+          onClick={downloadVideo}
           className="flex-1 bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary/90 transition shadow-md neon-glow"
           aria-label="Download MP4"
-          disabled={!isLikelyYouTube(url)}
+          disabled={!isLikelyYouTube(url) || isDownloading}
+          aria-busy={isDownloading}
         >
-          Download MP4
+          {isDownloading ? "Downloading…" : "Download MP4"}
         </Button>
         <Button
           variant="outline"
-          onClick={() => onDownload("mp3")}
-          className="flex-1 border-destructive text-destructive hover:bg-destructive/10 transition"
+          onClick={downloadAudio}
+          className="flex-1 border-destructive text-destructive hover:bg-destructive/10 transition bg-transparent"
           aria-label="Download MP3"
-          disabled={!isLikelyYouTube(url)}
+          disabled={!isLikelyYouTube(url) || isDownloading}
+          aria-busy={isDownloading}
         >
-          Download MP3
+          {isDownloading ? "Downloading…" : "Download MP3"}
         </Button>
       </div>
-
-      <p className="text-xs text-muted-foreground">
-        Note: SSA never stores your links. For backend downloads, connect your API in the buttons above.
-      </p>
     </div>
   )
 }

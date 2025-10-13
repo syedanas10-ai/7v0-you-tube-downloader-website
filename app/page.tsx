@@ -3,6 +3,7 @@ import { Suspense } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChannelBadge } from "@/components/channel-badge"
 import { DownloaderForm } from "@/components/downloader-form"
+import Link from "next/link"
 
 export default function HomePage() {
   return (
@@ -52,6 +53,15 @@ export default function HomePage() {
           </p>
           <div className="flex items-center justify-center">
             <ChannelBadge />
+          </div>
+          <div className="flex items-center justify-center">
+            <Link
+              href="/blog"
+              className="mt-2 inline-flex items-center rounded-md border border-sidebar-primary/50 bg-background/50 px-4 py-2 text-sm text-primary hover:bg-sidebar-primary/10 transition-colors"
+              aria-label="Visit the SSA Blog"
+            >
+              Visit the Blog
+            </Link>
           </div>
         </header>
 
@@ -103,13 +113,17 @@ export default function HomePage() {
             <CardContent className="text-sm text-muted-foreground space-y-2">
               <p>Clean experience—no shady popups.</p>
               <p>No login. Your link stays on your device.</p>
-              <p>When connected to backend, only essential data is sent.</p>
               <p>Trusted SSA brand—fast, professional, minimal.</p>
             </CardContent>
           </Card>
         </section>
 
-        <footer className="py-6 text-center text-sm text-muted-foreground">Made by SSA</footer>
+        <footer className="py-6 text-center text-sm text-muted-foreground">
+          Made by SSA
+          <Link href="/blog" className="ml-2 text-primary underline">
+            Blog
+          </Link>
+        </footer>
       </div>
     </main>
   )
