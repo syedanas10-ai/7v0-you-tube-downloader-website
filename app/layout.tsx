@@ -22,6 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${GeistMono.variable} dark antialiased`}>
+      {/* ✅ ADD THIS HEAD SECTION WITH ADSENSE CODE */}
+      <head>
+        <script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3305001830130873"
+          crossOrigin="anonymous"
+        />
+      </head>
+      
       <body className="font-sans min-h-screen flex flex-col">
         <Suspense fallback={<div>Loading...</div>}>
           <header className="border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
