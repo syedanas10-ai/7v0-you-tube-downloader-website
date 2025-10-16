@@ -65,144 +65,7 @@ export default function HomePage() {
           </div>
         </header>
 
-        {/* ✅ FIRST EDUCATIONAL CONTENT SECTION */}
-        <div className="educational-content space-y-6 bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-center">Complete YouTube Download Guide</h2>
-          
-          <div className="bg-background/50 rounded-lg p-4 border">
-            <h3 className="text-xl font-semibold mb-3">How to Download YouTube Videos</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-              <div className="text-center p-3 bg-muted rounded">
-                <div className="font-bold text-lg">1</div>
-                <div>Copy YouTube URL</div>
-              </div>
-              <div className="text-center p-3 bg-muted rounded">
-                <div className="font-bold text-lg">2</div>
-                <div>Paste link below</div>
-              </div>
-              <div className="text-center p-3 bg-muted rounded">
-                <div className="font-bold text-lg">3</div>
-                <div>Choose format</div>
-              </div>
-              <div className="text-center p-3 bg-muted rounded">
-                <div className="font-bold text-lg">4</div>
-                <div>Download video</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-background/50 rounded-lg p-4 border">
-              <h3 className="text-lg font-semibold mb-2">Video Formats</h3>
-              <ul className="text-sm space-y-1">
-                <li><strong>MP4:</strong> Universal format, works on all devices</li>
-                <li><strong>WEBM:</strong> High quality, smaller file size</li>
-                <li><strong>3GP:</strong> For older mobile devices</li>
-              </ul>
-            </div>
-            <div className="bg-background/50 rounded-lg p-4 border">
-              <h3 className="text-lg font-semibold mb-2">Audio Formats</h3>
-              <ul className="text-sm space-y-1">
-                <li><strong>MP3:</strong> Most compatible audio format</li>
-                <li><strong>M4A:</strong> Apple devices, better quality</li>
-                <li><strong>OGG:</strong> Open source format</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-background/50 rounded-lg p-4 border">
-            <h3 className="text-lg font-semibold mb-3">Video Quality Guide</h3>
-            <div className="grid grid-cols-3 md:grid-cols-5 gap-2 text-xs">
-              <div className="text-center p-2 bg-muted rounded">144p - Basic</div>
-              <div className="text-center p-2 bg-muted rounded">360p - Standard</div>
-              <div className="text-center p-2 bg-muted rounded">720p - HD Ready</div>
-              <div className="text-center p-2 bg-muted rounded">1080p - Full HD</div>
-              <div className="text-center p-2 bg-muted rounded">4K - Ultra HD</div>
-            </div>
-          </div>
-
-          <div className="bg-muted/50 rounded-lg p-4 border">
-            <h3 className="text-lg font-semibold mb-2">Important Notice</h3>
-            <p className="text-sm">Download videos only for personal use, education, or with proper permissions. Respect copyright laws and creators' rights.</p>
-          </div>
-        </div>
-
-        {/* ✅ SECOND EDUCATIONAL CONTENT SECTION */}
-        <div className="educational-content space-y-6 bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-center">Why Choose Our YouTube Downloader</h2>
-          
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="text-center p-4">
-              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-lg">⚡</span>
-              </div>
-              <h3 className="font-semibold mb-2">Lightning Fast</h3>
-              <p className="text-sm text-muted-foreground">Download videos in seconds with our optimized processing system</p>
-            </div>
-            <div className="text-center p-4">
-              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-lg">🛡️</span>
-              </div>
-              <h3 className="font-semibold mb-2">100% Safe</h3>
-              <p className="text-sm text-muted-foreground">No malware, no viruses, completely secure downloads</p>
-            </div>
-            <div className="text-center p-4">
-              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-lg">🎯</span>
-              </div>
-              <h3 className="font-semibold mb-2">High Quality</h3>
-              <p className="text-sm text-muted-foreground">Preserve original video and audio quality in all formats</p>
-            </div>
-          </div>
-
-          {/* FAQ Section */}
-          <div className="bg-background/50 rounded-lg p-4 border">
-            <h3 className="text-xl font-semibold mb-4">Frequently Asked Questions</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-semibold">Is it legal to download YouTube videos?</h4>
-                <p className="text-sm text-muted-foreground mt-1">Downloading YouTube videos is generally acceptable for personal use, educational purposes, or content you have rights to. Always respect copyright laws and creators' rights.</p>
-              </div>
-              <div>
-                <h4 className="font-semibold">What video formats are supported?</h4>
-                <p className="text-sm text-muted-foreground mt-1">We support MP4, WEBM, 3GP for video and MP3, M4A, OGG for audio. MP4 is recommended for best compatibility across all devices.</p>
-              </div>
-              <div>
-                <h4 className="font-semibold">Do I need to install any software?</h4>
-                <p className="text-sm text-muted-foreground mt-1">No installation required! Our online YouTube downloader works directly in your browser - no downloads, no plugins needed.</p>
-              </div>
-              <div>
-                <h4 className="font-semibold">What's the maximum video quality?</h4>
-                <p className="text-sm text-muted-foreground mt-1">We support up to 4K Ultra HD quality (2160p) for compatible videos, along with 1080p Full HD, 720p HD, and standard definitions.</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Supported Platforms */}
-          <div className="bg-background/50 rounded-lg p-4 border">
-            <h3 className="text-xl font-semibold mb-3">Works on All Devices</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
-              <div className="text-center p-2 bg-muted rounded">Windows PC</div>
-              <div className="text-center p-2 bg-muted rounded">Mac OS</div>
-              <div className="text-center p-2 bg-muted rounded">Android</div>
-              <div className="text-center p-2 bg-muted rounded">iPhone/iPad</div>
-            </div>
-            <p className="text-sm text-muted-foreground mt-3 text-center">Our web-based downloader works on all modern browsers and operating systems</p>
-          </div>
-
-          {/* Usage Tips */}
-          <div className="bg-muted/50 rounded-lg p-4 border">
-            <h3 className="text-lg font-semibold mb-2">Pro Tips for Best Results</h3>
-            <ul className="text-sm space-y-2">
-              <li>• Use MP4 format for universal device compatibility</li>
-              <li>• Choose 1080p for optimal quality and file size balance</li>
-              <li>• For music, MP3 at 320kbps provides excellent audio quality</li>
-              <li>• Ensure stable internet connection for faster downloads</li>
-            </ul>
-          </div>
-        </div>
-
+        {/* ✅ DOWNLOAD FORM FIRST (AS YOU WANTED) */}
         <Card className="bg-card/60 backdrop-blur-sm border-border/60 neon-glow">
           <CardHeader>
             <CardTitle>Start Downloading</CardTitle>
@@ -216,6 +79,197 @@ export default function HomePage() {
             </Suspense>
           </CardContent>
         </Card>
+
+        {/* ✅ COMPREHENSIVE CONTENT SECTION (LIKE POPULAR SITES) */}
+        <div className="educational-content space-y-8">
+          
+          {/* Features Section */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-4 text-center">
+              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span>⚡</span>
+              </div>
+              <h3 className="font-semibold">Instant Download</h3>
+              <p className="text-xs text-muted-foreground mt-1">Get your videos in seconds with high-speed processing</p>
+            </div>
+            <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-4 text-center">
+              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span>🎯</span>
+              </div>
+              <h3 className="font-semibold">Multiple Formats</h3>
+              <p className="text-xs text-muted-foreground mt-1">MP4, MP3, WEBM, 3GP and more supported formats</p>
+            </div>
+            <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-4 text-center">
+              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span>📱</span>
+              </div>
+              <h3 className="font-semibold">All Devices</h3>
+              <p className="text-xs text-muted-foreground mt-1">Works on PC, Mac, Android, iPhone and tablets</p>
+            </div>
+            <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-4 text-center">
+              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span>🛡️</span>
+              </div>
+              <h3 className="font-semibold">100% Safe</h3>
+              <p className="text-xs text-muted-foreground mt-1">No registration, no malware, completely secure</p>
+            </div>
+          </div>
+
+          {/* How It Works - Detailed */}
+          <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-center mb-6">How to Download YouTube Videos in 4 Easy Steps</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold mb-3">For Desktop Users</h3>
+                <ol className="space-y-2 text-sm">
+                  <li><strong>Step 1:</strong> Find the YouTube video you want to download</li>
+                  <li><strong>Step 2:</strong> Copy the URL from your browser's address bar</li>
+                  <li><strong>Step 3:</strong> Paste the link in the downloader above</li>
+                  <li><strong>Step 4:</strong> Choose your preferred format and quality</li>
+                  <li><strong>Step 5:</strong> Click download and save your video</li>
+                </ol>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-3">For Mobile Users</h3>
+                <ol className="space-y-2 text-sm">
+                  <li><strong>Step 1:</strong> Open YouTube app and find your video</li>
+                  <li><strong>Step 2:</strong> Tap "Share" and copy the video link</li>
+                  <li><strong>Step 3:</strong> Paste the link in our downloader</li>
+                  <li><strong>Step 4:</strong> Select MP4 for video or MP3 for audio</li>
+                  <li><strong>Step 5:</strong> Download and enjoy offline viewing</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          {/* Format Guide - Expanded */}
+          <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-center mb-6">Complete Format & Quality Guide</h2>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Video Formats Comparison</h3>
+                <div className="space-y-3">
+                  <div className="bg-background/50 rounded p-3">
+                    <h4 className="font-semibold">MP4 Format</h4>
+                    <p className="text-xs text-muted-foreground">Most compatible format, works on all devices and media players. Recommended for general use.</p>
+                  </div>
+                  <div className="bg-background/50 rounded p-3">
+                    <h4 className="font-semibold">WEBM Format</h4>
+                    <p className="text-xs text-muted-foreground">High quality with smaller file size. Great for web use and modern browsers.</p>
+                  </div>
+                  <div className="bg-background/50 rounded p-3">
+                    <h4 className="font-semibold">3GP Format</h4>
+                    <p className="text-xs text-muted-foreground">Legacy format for older mobile devices. Smallest file size but lower quality.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Audio Formats Comparison</h3>
+                <div className="space-y-3">
+                  <div className="bg-background/50 rounded p-3">
+                    <h4 className="font-semibold">MP3 Format</h4>
+                    <p className="text-xs text-muted-foreground">Universal audio format, compatible with all music players and devices.</p>
+                  </div>
+                  <div className="bg-background/50 rounded p-3">
+                    <h4 className="font-semibold">M4A Format</h4>
+                    <p className="text-xs text-muted-foreground">Advanced audio coding, better quality than MP3 at same bitrate.</p>
+                  </div>
+                  <div className="bg-background/50 rounded p-3">
+                    <h4 className="font-semibold">OGG Format</h4>
+                    <p className="text-xs text-muted-foreground">Open source format, efficient compression with good quality.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Quality & Resolution Guide */}
+          <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-center mb-6">Video Quality & Resolution Guide</h2>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
+              <div className="bg-gradient-to-b from-blue-500/20 to-blue-700/20 rounded-lg p-3 border border-blue-500/30">
+                <div className="font-bold text-lg">144p</div>
+                <div className="text-xs">Basic Quality</div>
+                <div className="text-xs text-muted-foreground mt-1">Smallest size</div>
+              </div>
+              <div className="bg-gradient-to-b from-green-500/20 to-green-700/20 rounded-lg p-3 border border-green-500/30">
+                <div className="font-bold text-lg">360p</div>
+                <div className="text-xs">Standard Def</div>
+                <div className="text-xs text-muted-foreground mt-1">Good for mobile</div>
+              </div>
+              <div className="bg-gradient-to-b from-yellow-500/20 to-yellow-700/20 rounded-lg p-3 border border-yellow-500/30">
+                <div className="font-bold text-lg">720p</div>
+                <div className="text-xs">HD Ready</div>
+                <div className="text-xs text-muted-foreground mt-1">Great balance</div>
+              </div>
+              <div className="bg-gradient-to-b from-orange-500/20 to-orange-700/20 rounded-lg p-3 border border-orange-500/30">
+                <div className="font-bold text-lg">1080p</div>
+                <div className="text-xs">Full HD</div>
+                <div className="text-xs text-muted-foreground mt-1">Best quality</div>
+              </div>
+              <div className="bg-gradient-to-b from-red-500/20 to-red-700/20 rounded-lg p-3 border border-red-500/30">
+                <div className="font-bold text-lg">4K</div>
+                <div className="text-xs">Ultra HD</div>
+                <div className="text-xs text-muted-foreground mt-1">Maximum detail</div>
+              </div>
+            </div>
+          </div>
+
+          {/* FAQ Section - Expanded */}
+          <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-center mb-6">Frequently Asked Questions</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-lg">Is this YouTube downloader free?</h4>
+                  <p className="text-sm text-muted-foreground mt-1">Yes, completely free! No hidden costs, no registration required. Download as many videos as you want without any limitations.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">What is the maximum video quality?</h4>
+                  <p className="text-sm text-muted-foreground mt-1">We support up to 4K Ultra HD (2160p) quality for compatible videos. Most videos are available in 1080p, 720p, 480p, and 360p.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">Can I download YouTube playlists?</h4>
+                  <p className="text-sm text-muted-foreground mt-1">Currently we support single video downloads. For playlists, you can download each video individually by copying their URLs separately.</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-lg">Is downloading YouTube videos legal?</h4>
+                  <p className="text-sm text-muted-foreground mt-1">Downloading is generally acceptable for personal use, educational purposes, or content you own. Always respect copyright and use content responsibly.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">How long does processing take?</h4>
+                  <p className="text-sm text-muted-foreground mt-1">Most videos process in 10-30 seconds depending on length and quality. Shorter videos and lower qualities process faster.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">Do you store downloaded videos?</h4>
+                  <p className="text-sm text-muted-foreground mt-1">No, we never store your videos or personal data. All processing happens in real-time and files are deleted immediately after download.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Usage Tips */}
+          <div className="bg-muted/50 rounded-lg p-6 border">
+            <h2 className="text-2xl font-bold text-center mb-4">Pro Tips for Best Results</h2>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <ul className="space-y-2">
+                <li>• <strong>For mobile devices:</strong> Use MP4 format with 720p for optimal quality and storage</li>
+                <li>• <strong>For music:</strong> Choose MP3 at 320kbps for best audio quality</li>
+                <li>• <strong>For archiving:</strong> Select 1080p MP4 for high quality preservation</li>
+              </ul>
+              <ul className="space-y-2">
+                <li>• <strong>Slow internet?</strong> Choose 360p or 480p for faster downloads</li>
+                <li>• <strong>Storage concerns?</strong> WEBM format offers great quality with smaller size</li>
+                <li>• <strong>Universal compatibility:</strong> MP4 works on all devices and players</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
 
         <section aria-labelledby="howto" className="grid gap-4 md:grid-cols-3">
           <Card className="bg-card/60 border-border/60">
@@ -265,4 +319,4 @@ export default function HomePage() {
       </div>
     </main>
   )
-            }
+        }
