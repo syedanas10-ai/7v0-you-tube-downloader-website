@@ -65,7 +65,7 @@ export default function HomePage() {
           </div>
         </header>
 
-        {/* ✅ ADDED EDUCATIONAL CONTENT SECTION */}
+        {/* ✅ FIRST EDUCATIONAL CONTENT SECTION */}
         <div className="educational-content space-y-6 bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
           <h2 className="text-2xl font-bold text-center">Complete YouTube Download Guide</h2>
           
@@ -124,6 +124,82 @@ export default function HomePage() {
           <div className="bg-muted/50 rounded-lg p-4 border">
             <h3 className="text-lg font-semibold mb-2">Important Notice</h3>
             <p className="text-sm">Download videos only for personal use, education, or with proper permissions. Respect copyright laws and creators' rights.</p>
+          </div>
+        </div>
+
+        {/* ✅ SECOND EDUCATIONAL CONTENT SECTION */}
+        <div className="educational-content space-y-6 bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-center">Why Choose Our YouTube Downloader</h2>
+          
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="text-center p-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-lg">⚡</span>
+              </div>
+              <h3 className="font-semibold mb-2">Lightning Fast</h3>
+              <p className="text-sm text-muted-foreground">Download videos in seconds with our optimized processing system</p>
+            </div>
+            <div className="text-center p-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-lg">🛡️</span>
+              </div>
+              <h3 className="font-semibold mb-2">100% Safe</h3>
+              <p className="text-sm text-muted-foreground">No malware, no viruses, completely secure downloads</p>
+            </div>
+            <div className="text-center p-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-lg">🎯</span>
+              </div>
+              <h3 className="font-semibold mb-2">High Quality</h3>
+              <p className="text-sm text-muted-foreground">Preserve original video and audio quality in all formats</p>
+            </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="bg-background/50 rounded-lg p-4 border">
+            <h3 className="text-xl font-semibold mb-4">Frequently Asked Questions</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold">Is it legal to download YouTube videos?</h4>
+                <p className="text-sm text-muted-foreground mt-1">Downloading YouTube videos is generally acceptable for personal use, educational purposes, or content you have rights to. Always respect copyright laws and creators' rights.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold">What video formats are supported?</h4>
+                <p className="text-sm text-muted-foreground mt-1">We support MP4, WEBM, 3GP for video and MP3, M4A, OGG for audio. MP4 is recommended for best compatibility across all devices.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold">Do I need to install any software?</h4>
+                <p className="text-sm text-muted-foreground mt-1">No installation required! Our online YouTube downloader works directly in your browser - no downloads, no plugins needed.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold">What's the maximum video quality?</h4>
+                <p className="text-sm text-muted-foreground mt-1">We support up to 4K Ultra HD quality (2160p) for compatible videos, along with 1080p Full HD, 720p HD, and standard definitions.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Supported Platforms */}
+          <div className="bg-background/50 rounded-lg p-4 border">
+            <h3 className="text-xl font-semibold mb-3">Works on All Devices</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+              <div className="text-center p-2 bg-muted rounded">Windows PC</div>
+              <div className="text-center p-2 bg-muted rounded">Mac OS</div>
+              <div className="text-center p-2 bg-muted rounded">Android</div>
+              <div className="text-center p-2 bg-muted rounded">iPhone/iPad</div>
+            </div>
+            <p className="text-sm text-muted-foreground mt-3 text-center">Our web-based downloader works on all modern browsers and operating systems</p>
+          </div>
+
+          {/* Usage Tips */}
+          <div className="bg-muted/50 rounded-lg p-4 border">
+            <h3 className="text-lg font-semibold mb-2">Pro Tips for Best Results</h3>
+            <ul className="text-sm space-y-2">
+              <li>• Use MP4 format for universal device compatibility</li>
+              <li>• Choose 1080p for optimal quality and file size balance</li>
+              <li>• For music, MP3 at 320kbps provides excellent audio quality</li>
+              <li>• Ensure stable internet connection for faster downloads</li>
+            </ul>
           </div>
         </div>
 
@@ -189,4 +265,4 @@ export default function HomePage() {
       </div>
     </main>
   )
-                }
+            }
