@@ -41,70 +41,91 @@ export default function HomePage() {
         />
 
         <header className="text-center space-y-3">
-          <div className="educational-content space-y-6 bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
-  <h2 className="text-2xl font-bold text-center">Complete YouTube Download Guide</h2>
-  
-  {/* How It Works */}
-  <div className="bg-background/50 rounded-lg p-4 border">
-    <h3 className="text-xl font-semibold mb-3">How to Download YouTube Videos</h3>
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-      <div className="text-center p-3 bg-muted rounded">
-        <div className="font-bold text-lg">1</div>
-        <div>Copy YouTube URL</div>
-      </div>
-      <div className="text-center p-3 bg-muted rounded">
-        <div className="font-bold text-lg">2</div>
-        <div>Paste link below</div>
-      </div>
-      <div className="text-center p-3 bg-muted rounded">
-        <div className="font-bold text-lg">3</div>
-        <div>Choose format</div>
-      </div>
-      <div className="text-center p-3 bg-muted rounded">
-        <div className="font-bold text-lg">4</div>
-        <div>Download video</div>
-      </div>
-    </div>
-  </div>
+          <div className="inline-flex items-center justify-center mx-auto px-3 py-1 rounded-full border border-sidebar-primary/50 bg-background/50 text-xs text-muted-foreground tracking-wide">
+            Free & Fast • No Login • Clean UI
+          </div>
+          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-primary neon-text text-balance">
+            SSA YT-MP4/MP3 Downloader
+          </h1>
+          <p className="text-muted-foreground text-pretty">
+            Fast and free YouTube to MP4/MP3 conversions. Paste a link, preview the video, choose quality, and
+            download—simple and secure.
+          </p>
+          <div className="flex items-center justify-center">
+            <ChannelBadge />
+          </div>
+          <div className="flex items-center justify-center">
+            <Link
+              href="/blog"
+              className="mt-2 inline-flex items-center rounded-md border border-sidebar-primary/50 bg-background/50 px-4 py-2 text-sm text-primary hover:bg-sidebar-primary/10 transition-colors"
+              aria-label="Visit the SSA Blog"
+            >
+              Visit the Blog
+            </Link>
+          </div>
+        </header>
 
-  {/* Format Guide */}
-  <div className="grid md:grid-cols-2 gap-4">
-    <div className="bg-background/50 rounded-lg p-4 border">
-      <h3 className="text-lg font-semibold mb-2">Video Formats</h3>
-      <ul className="text-sm space-y-1">
-        <li><strong>MP4:</strong> Universal format, works on all devices</li>
-        <li><strong>WEBM:</strong> High quality, smaller file size</li>
-        <li><strong>3GP:</strong> For older mobile devices</li>
-      </ul>
-    </div>
-    <div className="bg-background/50 rounded-lg p-4 border">
-      <h3 className="text-lg font-semibold mb-2">Audio Formats</h3>
-      <ul className="text-sm space-y-1">
-        <li><strong>MP3:</strong> Most compatible audio format</li>
-        <li><strong>M4A:</strong> Apple devices, better quality</li>
-        <li><strong>OGG:</strong> Open source format</li>
-      </ul>
-    </div>
-  </div>
+        {/* ✅ ADDED EDUCATIONAL CONTENT SECTION */}
+        <div className="educational-content space-y-6 bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-center">Complete YouTube Download Guide</h2>
+          
+          <div className="bg-background/50 rounded-lg p-4 border">
+            <h3 className="text-xl font-semibold mb-3">How to Download YouTube Videos</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+              <div className="text-center p-3 bg-muted rounded">
+                <div className="font-bold text-lg">1</div>
+                <div>Copy YouTube URL</div>
+              </div>
+              <div className="text-center p-3 bg-muted rounded">
+                <div className="font-bold text-lg">2</div>
+                <div>Paste link below</div>
+              </div>
+              <div className="text-center p-3 bg-muted rounded">
+                <div className="font-bold text-lg">3</div>
+                <div>Choose format</div>
+              </div>
+              <div className="text-center p-3 bg-muted rounded">
+                <div className="font-bold text-lg">4</div>
+                <div>Download video</div>
+              </div>
+            </div>
+          </div>
 
-  {/* Quality Guide */}
-  <div className="bg-background/50 rounded-lg p-4 border">
-    <h3 className="text-lg font-semibold mb-3">Video Quality Guide</h3>
-    <div className="grid grid-cols-3 md:grid-cols-5 gap-2 text-xs">
-      <div className="text-center p-2 bg-muted rounded">144p - Basic</div>
-      <div className="text-center p-2 bg-muted rounded">360p - Standard</div>
-      <div className="text-center p-2 bg-muted rounded">720p - HD Ready</div>
-      <div className="text-center p-2 bg-muted rounded">1080p - Full HD</div>
-      <div className="text-center p-2 bg-muted rounded">4K - Ultra HD</div>
-    </div>
-  </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-background/50 rounded-lg p-4 border">
+              <h3 className="text-lg font-semibold mb-2">Video Formats</h3>
+              <ul className="text-sm space-y-1">
+                <li><strong>MP4:</strong> Universal format, works on all devices</li>
+                <li><strong>WEBM:</strong> High quality, smaller file size</li>
+                <li><strong>3GP:</strong> For older mobile devices</li>
+              </ul>
+            </div>
+            <div className="bg-background/50 rounded-lg p-4 border">
+              <h3 className="text-lg font-semibold mb-2">Audio Formats</h3>
+              <ul className="text-sm space-y-1">
+                <li><strong>MP3:</strong> Most compatible audio format</li>
+                <li><strong>M4A:</strong> Apple devices, better quality</li>
+                <li><strong>OGG:</strong> Open source format</li>
+              </ul>
+            </div>
+          </div>
 
-  {/* Legal Notice */}
-  <div className="bg-muted/50 rounded-lg p-4 border">
-    <h3 className="text-lg font-semibold mb-2">Important Notice</h3>
-    <p className="text-sm">Download videos only for personal use, education, or with proper permissions. Respect copyright laws and creators' rights.</p>
-  </div>
-</div>
+          <div className="bg-background/50 rounded-lg p-4 border">
+            <h3 className="text-lg font-semibold mb-3">Video Quality Guide</h3>
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-2 text-xs">
+              <div className="text-center p-2 bg-muted rounded">144p - Basic</div>
+              <div className="text-center p-2 bg-muted rounded">360p - Standard</div>
+              <div className="text-center p-2 bg-muted rounded">720p - HD Ready</div>
+              <div className="text-center p-2 bg-muted rounded">1080p - Full HD</div>
+              <div className="text-center p-2 bg-muted rounded">4K - Ultra HD</div>
+            </div>
+          </div>
+
+          <div className="bg-muted/50 rounded-lg p-4 border">
+            <h3 className="text-lg font-semibold mb-2">Important Notice</h3>
+            <p className="text-sm">Download videos only for personal use, education, or with proper permissions. Respect copyright laws and creators' rights.</p>
+          </div>
+        </div>
 
         <Card className="bg-card/60 backdrop-blur-sm border-border/60 neon-glow">
           <CardHeader>
@@ -132,7 +153,7 @@ export default function HomePage() {
               <p>1. Paste a YouTube link.</p>
               <p>2. Preview the thumbnail.</p>
               <p>3. Pick MP4 or MP3, select quality.</p>
-              <p>4. Tap Download. That’s it.</p>
+              <p>4. Tap Download. That's it.</p>
             </CardContent>
           </Card>
           <Card className="bg-card/60 border-border/60">
@@ -168,4 +189,4 @@ export default function HomePage() {
       </div>
     </main>
   )
-}
+                }
