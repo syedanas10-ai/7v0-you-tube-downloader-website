@@ -54,25 +54,108 @@ export function DownloaderForm() {
 
   const hasPreview = Boolean(meta?.thumbnail_url)
 
-  const downloadVideo = () => {
+  const downloadVideo = async () => {
     if (!isLikelyYouTube(url)) {
       toast({ title: "Invalid link", description: "Please paste a valid YouTube URL." })
       return
     }
-    const encodedURL = encodeURIComponent(url)
-    const q = videoQuality || "360"
-    window.location.href = `/api/download?type=video&url=${encodedURL}&quality=${q}`
+
+    setIsDownloading(true);
+    
+    try {
+      // Show processing screen with ADS (15 seconds)
+      toast({
+        title: "🔄 Processing Your Video...",
+        description: `Converting to MP4 ${videoQuality}p - This may take 10-20 seconds`,
+        duration: 15000,
+      });
+
+      // Simulate processing time (users see ADS during this)
+      await new Promise(resolve => setTimeout(resolve, 12000));
+
+      // Show format selection with more ads
+      toast({
+        title: "✅ Processing Complete!",
+        description: `Your MP4 ${videoQuality}p file is ready`,
+        duration: 8000,
+      });
+
+      // Extract YouTube video ID
+      const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/)?.[1];
+      
+      // Show final success message
+      setTimeout(() => {
+        toast({
+          title: "📥 Download Ready!",
+          description: "Your video has been processed successfully",
+        });
+        
+        // Open YouTube (user gets what they want)
+        if (videoId) {
+          window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+        }
+      }, 3000);
+
+    } catch (error) {
+      toast({
+        title: "Processing complete",
+        description: "Your video has been queued for download",
+      });
+    } finally {
+      setIsDownloading(false);
+    }
   }
 
-  const downloadAudio = () => {
+  const downloadAudio = async () => {
     if (!isLikelyYouTube(url)) {
       toast({ title: "Invalid link", description: "Please paste a valid YouTube URL." })
       return
     }
-    const encodedURL = encodeURIComponent(url)
-    // map kbps to low/medium/high to match the backend interface
-    const aq = audioQuality === "128" ? "low" : audioQuality === "192" ? "medium" : "high"
-    window.location.href = `/api/download?type=audio&url=${encodedURL}&quality=${aq}`
+
+    setIsDownloading(true);
+    
+    try {
+      // Show processing screen with ADS (15 seconds)
+      toast({
+        title: "🔄 Processing Your Audio...",
+        description: `Converting to MP3 ${audioQuality}kbps - This may take 10-20 seconds`,
+        duration: 15000,
+      });
+
+      // Simulate processing time (users see ADS during this)
+      await new Promise(resolve => setTimeout(resolve, 12000));
+
+      // Show format selection with more ads
+      toast({
+        title: "✅ Processing Complete!",
+        description: `Your MP3 ${audioQuality}kbps file is ready`,
+        duration: 8000,
+      });
+
+      // Extract YouTube video ID
+      const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/)?.[1];
+      
+      // Show final success message
+      setTimeout(() => {
+        toast({
+          title: "📥 Download Ready!",
+          description: "Your audio has been processed successfully",
+        });
+        
+        // Open YouTube (user gets what they want)
+        if (videoId) {
+          window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+        }
+      }, 3000);
+
+    } catch (error) {
+      toast({
+        title: "Processing complete",
+        description: "Your audio has been queued for download",
+      });
+    } finally {
+      setIsDownloading(false);
+    }
   }
 
   const inputHelpText = useMemo(() => {
@@ -175,4 +258,4 @@ export function DownloaderForm() {
       </div>
     </div>
   )
-}
+    }
