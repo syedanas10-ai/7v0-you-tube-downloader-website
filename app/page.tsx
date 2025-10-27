@@ -1,322 +1,297 @@
-import type React from "react"
-import { Suspense } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChannelBadge } from "@/components/channel-badge"
-import { DownloaderForm } from "@/components/downloader-form"
+"use client"
+
+import { motion } from "framer-motion"
 import Link from "next/link"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ArrowRight, Download, Music, BookOpen } from "lucide-react"
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+}
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+}
 
 export default function HomePage() {
   return (
-    <main className="min-h-[100svh] flex items-center justify-center px-4">
-      <div
-        className="relative w-full max-w-3xl space-y-8 animate-in fade-in-50 slide-in-from-bottom-2 duration-500"
-        style={
-          {
-            // Electric neon blue brand (avoids purple tone)
-            ["--color-sidebar-primary" as any]: "oklch(0.72 0.22 240)",
-          } as React.CSSProperties
-        }
-      >
-        {/* background grid */}
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 opacity-25"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, color-mix(in oklch, var(--color-border) 25%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklch, var(--color-border) 25%, transparent) 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-            backgroundPosition: "center center",
-          }}
-        />
-        {/* hero glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -z-10 top-[-10%] left-1/2 h-[520px] w-[520px] -translate-x-1/2"
-          style={{
-            background:
-              "radial-gradient(closest-side, color-mix(in oklch, var(--color-sidebar-primary) 60%, transparent), transparent 70%)",
-            filter: "blur(24px)",
-            opacity: 0.6,
-          }}
-        />
-
-        <header className="text-center space-y-3">
-          <div className="inline-flex items-center justify-center mx-auto px-3 py-1 rounded-full border border-sidebar-primary/50 bg-background/50 text-xs text-muted-foreground tracking-wide">
-            Free & Fast • No Login • Clean UI
-          </div>
-          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-primary neon-text text-balance">
-            SSA YT-MP4/MP3 Downloader
-          </h1>
-          <p className="text-muted-foreground text-pretty">
-            Fast and free YouTube to MP4/MP3 conversions. Paste a link, preview the video, choose quality, and
-            download—simple and secure.
-          </p>
-          <div className="flex items-center justify-center">
-            <ChannelBadge />
-          </div>
-          <div className="flex items-center justify-center">
-            <Link
-              href="/blog"
-              className="mt-2 inline-flex items-center rounded-md border border-sidebar-primary/50 bg-background/50 px-4 py-2 text-sm text-primary hover:bg-sidebar-primary/10 transition-colors"
-              aria-label="Visit the SSA Blog"
-            >
-              Visit the Blog
-            </Link>
-          </div>
-        </header>
-
-        {/* ✅ DOWNLOAD FORM FIRST (AS YOU WANTED) */}
-        <Card className="bg-card/60 backdrop-blur-sm border-border/60 neon-glow">
-          <CardHeader>
-            <CardTitle>Start Downloading</CardTitle>
-            <CardDescription>
-              Paste a YouTube link, preview the thumbnail, then choose format and quality.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <Suspense fallback={<div className="text-muted-foreground">Loading form…</div>}>
-              <DownloaderForm />
-            </Suspense>
-          </CardContent>
-        </Card>
-
-        {/* ✅ COMPREHENSIVE CONTENT SECTION (LIKE POPULAR SITES) */}
-        <div className="educational-content space-y-8">
-          
-          {/* Features Section */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-4 text-center">
-              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span>⚡</span>
-              </div>
-              <h3 className="font-semibold">Instant Download</h3>
-              <p className="text-xs text-muted-foreground mt-1">Get your videos in seconds with high-speed processing</p>
-            </div>
-            <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-4 text-center">
-              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span>🎯</span>
-              </div>
-              <h3 className="font-semibold">Multiple Formats</h3>
-              <p className="text-xs text-muted-foreground mt-1">MP4, MP3, WEBM, 3GP and more supported formats</p>
-            </div>
-            <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-4 text-center">
-              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span>📱</span>
-              </div>
-              <h3 className="font-semibold">All Devices</h3>
-              <p className="text-xs text-muted-foreground mt-1">Works on PC, Mac, Android, iPhone and tablets</p>
-            </div>
-            <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-4 text-center">
-              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span>🛡️</span>
-              </div>
-              <h3 className="font-semibold">100% Safe</h3>
-              <p className="text-xs text-muted-foreground mt-1">No registration, no malware, completely secure</p>
-            </div>
-          </div>
-
-          {/* How It Works - Detailed */}
-          <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-center mb-6">How to Download YouTube Videos in 4 Easy Steps</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold mb-3">For Desktop Users</h3>
-                <ol className="space-y-2 text-sm">
-                  <li><strong>Step 1:</strong> Find the YouTube video you want to download</li>
-                  <li><strong>Step 2:</strong> Copy the URL from your browser's address bar</li>
-                  <li><strong>Step 3:</strong> Paste the link in the downloader above</li>
-                  <li><strong>Step 4:</strong> Choose your preferred format and quality</li>
-                  <li><strong>Step 5:</strong> Click download and save your video</li>
-                </ol>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-3">For Mobile Users</h3>
-                <ol className="space-y-2 text-sm">
-                  <li><strong>Step 1:</strong> Open YouTube app and find your video</li>
-                  <li><strong>Step 2:</strong> Tap "Share" and copy the video link</li>
-                  <li><strong>Step 3:</strong> Paste the link in our downloader</li>
-                  <li><strong>Step 4:</strong> Select MP4 for video or MP3 for audio</li>
-                  <li><strong>Step 5:</strong> Download and enjoy offline viewing</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-
-          {/* Format Guide - Expanded */}
-          <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-center mb-6">Complete Format & Quality Guide</h2>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Video Formats Comparison</h3>
-                <div className="space-y-3">
-                  <div className="bg-background/50 rounded p-3">
-                    <h4 className="font-semibold">MP4 Format</h4>
-                    <p className="text-xs text-muted-foreground">Most compatible format, works on all devices and media players. Recommended for general use.</p>
-                  </div>
-                  <div className="bg-background/50 rounded p-3">
-                    <h4 className="font-semibold">WEBM Format</h4>
-                    <p className="text-xs text-muted-foreground">High quality with smaller file size. Great for web use and modern browsers.</p>
-                  </div>
-                  <div className="bg-background/50 rounded p-3">
-                    <h4 className="font-semibold">3GP Format</h4>
-                    <p className="text-xs text-muted-foreground">Legacy format for older mobile devices. Smallest file size but lower quality.</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Audio Formats Comparison</h3>
-                <div className="space-y-3">
-                  <div className="bg-background/50 rounded p-3">
-                    <h4 className="font-semibold">MP3 Format</h4>
-                    <p className="text-xs text-muted-foreground">Universal audio format, compatible with all music players and devices.</p>
-                  </div>
-                  <div className="bg-background/50 rounded p-3">
-                    <h4 className="font-semibold">M4A Format</h4>
-                    <p className="text-xs text-muted-foreground">Advanced audio coding, better quality than MP3 at same bitrate.</p>
-                  </div>
-                  <div className="bg-background/50 rounded p-3">
-                    <h4 className="font-semibold">OGG Format</h4>
-                    <p className="text-xs text-muted-foreground">Open source format, efficient compression with good quality.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Quality & Resolution Guide */}
-          <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-center mb-6">Video Quality & Resolution Guide</h2>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
-              <div className="bg-gradient-to-b from-blue-500/20 to-blue-700/20 rounded-lg p-3 border border-blue-500/30">
-                <div className="font-bold text-lg">144p</div>
-                <div className="text-xs">Basic Quality</div>
-                <div className="text-xs text-muted-foreground mt-1">Smallest size</div>
-              </div>
-              <div className="bg-gradient-to-b from-green-500/20 to-green-700/20 rounded-lg p-3 border border-green-500/30">
-                <div className="font-bold text-lg">360p</div>
-                <div className="text-xs">Standard Def</div>
-                <div className="text-xs text-muted-foreground mt-1">Good for mobile</div>
-              </div>
-              <div className="bg-gradient-to-b from-yellow-500/20 to-yellow-700/20 rounded-lg p-3 border border-yellow-500/30">
-                <div className="font-bold text-lg">720p</div>
-                <div className="text-xs">HD Ready</div>
-                <div className="text-xs text-muted-foreground mt-1">Great balance</div>
-              </div>
-              <div className="bg-gradient-to-b from-orange-500/20 to-orange-700/20 rounded-lg p-3 border border-orange-500/30">
-                <div className="font-bold text-lg">1080p</div>
-                <div className="text-xs">Full HD</div>
-                <div className="text-xs text-muted-foreground mt-1">Best quality</div>
-              </div>
-              <div className="bg-gradient-to-b from-red-500/20 to-red-700/20 rounded-lg p-3 border border-red-500/30">
-                <div className="font-bold text-lg">4K</div>
-                <div className="text-xs">Ultra HD</div>
-                <div className="text-xs text-muted-foreground mt-1">Maximum detail</div>
-              </div>
-            </div>
-          </div>
-
-          {/* FAQ Section - Expanded */}
-          <div className="bg-card/60 backdrop-blur-sm border border-border/60 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-center mb-6">Frequently Asked Questions</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-lg">Is this YouTube downloader free?</h4>
-                  <p className="text-sm text-muted-foreground mt-1">Yes, completely free! No hidden costs, no registration required. Download as many videos as you want without any limitations.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg">What is the maximum video quality?</h4>
-                  <p className="text-sm text-muted-foreground mt-1">We support up to 4K Ultra HD (2160p) quality for compatible videos. Most videos are available in 1080p, 720p, 480p, and 360p.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg">Can I download YouTube playlists?</h4>
-                  <p className="text-sm text-muted-foreground mt-1">Currently we support single video downloads. For playlists, you can download each video individually by copying their URLs separately.</p>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-lg">Is downloading YouTube videos legal?</h4>
-                  <p className="text-sm text-muted-foreground mt-1">Downloading is generally acceptable for personal use, educational purposes, or content you own. Always respect copyright and use content responsibly.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg">How long does processing take?</h4>
-                  <p className="text-sm text-muted-foreground mt-1">Most videos process in 10-30 seconds depending on length and quality. Shorter videos and lower qualities process faster.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg">Do you store downloaded videos?</h4>
-                  <p className="text-sm text-muted-foreground mt-1">No, we never store your videos or personal data. All processing happens in real-time and files are deleted immediately after download.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Usage Tips */}
-          <div className="bg-muted/50 rounded-lg p-6 border">
-            <h2 className="text-2xl font-bold text-center mb-4">Pro Tips for Best Results</h2>
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <ul className="space-y-2">
-                <li>• <strong>For mobile devices:</strong> Use MP4 format with 720p for optimal quality and storage</li>
-                <li>• <strong>For music:</strong> Choose MP3 at 320kbps for best audio quality</li>
-                <li>• <strong>For archiving:</strong> Select 1080p MP4 for high quality preservation</li>
-              </ul>
-              <ul className="space-y-2">
-                <li>• <strong>Slow internet?</strong> Choose 360p or 480p for faster downloads</li>
-                <li>• <strong>Storage concerns?</strong> WEBM format offers great quality with smaller size</li>
-                <li>• <strong>Universal compatibility:</strong> MP4 works on all devices and players</li>
-              </ul>
-            </div>
-          </div>
-
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden px-4 py-20 md:py-32">
+        {/* Animated background */}
+        <div className="absolute inset-0 -z-10">
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, color-mix(in oklch, var(--color-border) 15%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklch, var(--color-border) 15%, transparent) 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, color-mix(in oklch, var(--color-sidebar-primary) 40%, transparent), transparent 70%)",
+              filter: "blur(40px)",
+            }}
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.5, 0.7, 0.5],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+          />
         </div>
 
-        <section aria-labelledby="howto" className="grid gap-4 md:grid-cols-3">
-          <Card className="bg-card/60 border-border/60">
-            <CardHeader>
-              <CardTitle id="howto" className="text-lg">
-                How it works
-              </CardTitle>
-              <CardDescription>Simple, fast, and secure</CardDescription>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground space-y-2">
-              <p>1. Paste a YouTube link.</p>
-              <p>2. Preview the thumbnail.</p>
-              <p>3. Pick MP4 or MP3, select quality.</p>
-              <p>4. Tap Download. That's it.</p>
-            </CardContent>
-          </Card>
-          <Card className="bg-card/60 border-border/60">
-            <CardHeader>
-              <CardTitle className="text-lg">Quality options</CardTitle>
-              <CardDescription>Video and audio preferences</CardDescription>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground space-y-2">
-              <p>Video: 360p, 480p, 1080p, 2K, 4K</p>
-              <p>Audio: 128, 192, 256, 320 kbps</p>
-              <p>Choose speed or crystal clarity—your call.</p>
-            </CardContent>
-          </Card>
-          <Card className="bg-card/60 border-border/60">
-            <CardHeader>
-              <CardTitle className="text-lg">Trust & safety</CardTitle>
-              <CardDescription>Why choose SSA</CardDescription>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground space-y-2">
-              <p>Clean experience—no shady popups.</p>
-              <p>No login. Your link stays on your device.</p>
-              <p>Trusted SSA brand—fast, professional, minimal.</p>
-            </CardContent>
-          </Card>
-        </section>
+        <motion.div
+          className="mx-auto max-w-4xl text-center space-y-6"
+          initial="initial"
+          animate="animate"
+          variants={staggerContainer}
+        >
+          <motion.div
+            variants={fadeInUp}
+            className="inline-flex items-center justify-center mx-auto px-4 py-2 rounded-full border border-sidebar-primary/50 bg-background/50 text-xs text-muted-foreground tracking-wide"
+          >
+            Free & Fast • No Login • Clean UI
+          </motion.div>
 
-        <footer className="py-6 text-center text-sm text-muted-foreground">
-          Made by SSA
-          <Link href="/blog" className="ml-2 text-primary underline">
-            Blog
+          <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+            SSA Tools — Free Online Video & Audio Utilities
+          </motion.h1>
+
+          <motion.p variants={fadeInUp} className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Convert, download, and explore tips for creators. Fast, free YouTube to MP4/MP3 downloader and more.
+          </motion.p>
+
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <Link href="/tools/ytdownloader">
+              <Button size="lg" className="w-full sm:w-auto">
+                Try YouTube Downloader <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="/blog">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
+                Read Blog
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Features Section */}
+      <section className="px-4 py-16 md:py-24 bg-background/50">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Tools</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Everything you need to download, convert, and optimize your media.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid md:grid-cols-3 gap-6"
+            initial="initial"
+            whileInView="animate"
+            variants={staggerContainer}
+            viewport={{ once: true }}
+          >
+            {/* YouTube Downloader Card */}
+            <motion.div variants={fadeInUp}>
+              <Link href="/tools/ytdownloader">
+                <Card className="h-full hover:border-sidebar-primary/50 hover:shadow-lg transition-all cursor-pointer group">
+                  <CardHeader>
+                    <div className="w-12 h-12 rounded-lg bg-sidebar-primary/10 flex items-center justify-center mb-4 group-hover:bg-sidebar-primary/20 transition-colors">
+                      <Download className="h-6 w-6 text-sidebar-primary" />
+                    </div>
+                    <CardTitle>YouTube Downloader</CardTitle>
+                    <CardDescription>Download videos in MP4 format</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Convert YouTube videos to MP4 with multiple quality options. Fast, free, and no login required.
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* MP3 Converter Card */}
+            <motion.div variants={fadeInUp}>
+              <Link href="/tools/ytdownloader">
+                <Card className="h-full hover:border-sidebar-primary/50 hover:shadow-lg transition-all cursor-pointer group">
+                  <CardHeader>
+                    <div className="w-12 h-12 rounded-lg bg-sidebar-primary/10 flex items-center justify-center mb-4 group-hover:bg-sidebar-primary/20 transition-colors">
+                      <Music className="h-6 w-6 text-sidebar-primary" />
+                    </div>
+                    <CardTitle>MP3 Converter</CardTitle>
+                    <CardDescription>Extract audio from videos</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Convert YouTube videos to high-quality audio. Choose from multiple bitrates for the perfect
+                      balance.
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Blog & Tutorials Card */}
+            <motion.div variants={fadeInUp}>
+              <Link href="/blog">
+                <Card className="h-full hover:border-sidebar-primary/50 hover:shadow-lg transition-all cursor-pointer group">
+                  <CardHeader>
+                    <div className="w-12 h-12 rounded-lg bg-sidebar-primary/10 flex items-center justify-center mb-4 group-hover:bg-sidebar-primary/20 transition-colors">
+                      <BookOpen className="h-6 w-6 text-sidebar-primary" />
+                    </div>
+                    <CardTitle>Blog & Tutorials</CardTitle>
+                    <CardDescription>Learn best practices</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Educational articles about video downloading, formats, quality, and mobile optimization.
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Latest Articles Section */}
+      <section className="px-4 py-16 md:py-24">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Latest Articles</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Stay updated with tips, guides, and best practices for creators.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid md:grid-cols-3 gap-6"
+            initial="initial"
+            whileInView="animate"
+            variants={staggerContainer}
+            viewport={{ once: true }}
+          >
+            {/* Article 1 */}
+            <motion.div variants={fadeInUp}>
+              <Link href="/blog/legal-guide">
+                <Card className="h-full hover:border-sidebar-primary/50 hover:shadow-lg transition-all cursor-pointer overflow-hidden group">
+                  <div className="h-32 bg-gradient-to-br from-sidebar-primary/20 to-sidebar-primary/5 group-hover:from-sidebar-primary/30 transition-colors" />
+                  <CardHeader>
+                    <CardTitle className="text-lg">How to Use YouTube Responsibly</CardTitle>
+                    <CardDescription>Legal guide for downloading</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Learn about fair use, copyright basics, and how to download videos responsibly.
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Article 2 */}
+            <motion.div variants={fadeInUp}>
+              <Link href="/blog/mp4-vs-mp3">
+                <Card className="h-full hover:border-sidebar-primary/50 hover:shadow-lg transition-all cursor-pointer overflow-hidden group">
+                  <div className="h-32 bg-gradient-to-br from-sidebar-primary/20 to-sidebar-primary/5 group-hover:from-sidebar-primary/30 transition-colors" />
+                  <CardHeader>
+                    <CardTitle className="text-lg">MP4 vs MP3: Which Format?</CardTitle>
+                    <CardDescription>Format comparison guide</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Compare video and audio formats, use cases, and quality differences explained.
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Article 3 */}
+            <motion.div variants={fadeInUp}>
+              <Link href="/blog/video-quality-explained">
+                <Card className="h-full hover:border-sidebar-primary/50 hover:shadow-lg transition-all cursor-pointer overflow-hidden group">
+                  <div className="h-32 bg-gradient-to-br from-sidebar-primary/20 to-sidebar-primary/5 group-hover:from-sidebar-primary/30 transition-colors" />
+                  <CardHeader>
+                    <CardTitle className="text-lg">Video Quality: 480p to 4K</CardTitle>
+                    <CardDescription>Resolution explained</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Understand resolution, when to use each quality, and file size comparisons.
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <Link href="/blog">
+              <Button variant="outline" size="lg">
+                View All Articles <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="px-4 py-16 md:py-24 bg-background/50">
+        <motion.div
+          className="mx-auto max-w-2xl text-center space-y-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Ready to Get Started?</h2>
+          <p className="text-muted-foreground">
+            Download your first video in seconds. No signup, no ads, just fast and reliable conversion.
+          </p>
+          <Link href="/tools/ytdownloader">
+            <Button size="lg" className="w-full sm:w-auto">
+              Start Downloading Now <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </Link>
-        </footer>
-      </div>
-    </main>
+        </motion.div>
+      </section>
+    </div>
   )
-        }
+}

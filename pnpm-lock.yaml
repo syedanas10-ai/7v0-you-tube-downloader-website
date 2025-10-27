@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@emotion/is-prop-valid':
+        specifier: latest
+        version: 1.4.0
       '@hookform/resolvers':
         specifier: ^3.10.0
         version: 3.10.0(react-hook-form@7.60.0(react@19.0.0))
@@ -97,7 +100,7 @@ importers:
         version: 1.5.0(next@15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
       '@vercel/node':
         specifier: latest
-        version: 5.3.26
+        version: 5.5.0
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.0)
@@ -116,6 +119,9 @@ importers:
       embla-carousel-react:
         specifier: 8.5.1
         version: 8.5.1(react@19.0.0)
+      framer-motion:
+        specifier: latest
+        version: 12.23.24(@emotion/is-prop-valid@1.4.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       geist:
         specifier: latest
         version: 1.5.1(next@15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
@@ -239,6 +245,12 @@ packages:
 
   '@emnapi/runtime@1.5.0':
     resolution: {integrity: sha512-97/BJ3iXHww3djw6hYIfErCZFee7qCtrneuLa20UXFCOTCfBM2cvQHjWJ2EG0s0MtdNwInarqCTz35i4wWXHsQ==}
+
+  '@emotion/is-prop-valid@1.4.0':
+    resolution: {integrity: sha512-QgD4fyscGcbbKwJmqNvUMSE02OsHUa+lAWKdEUIJKgqe5IwRSKd7+KhibEWdaKwgjLj0DRSHA9biAIqGBk05lw==}
+
+  '@emotion/memoize@0.9.0':
+    resolution: {integrity: sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ==}
 
   '@fastify/busboy@2.1.1':
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
@@ -1513,8 +1525,8 @@ packages:
       vue-router:
         optional: true
 
-  '@vercel/build-utils@12.1.2':
-    resolution: {integrity: sha512-W0j2n9e65rr/fpzghTCgH4qFJgMX249hCQJmEdVzdKkXRlO6DfSqBljEHASCFaeBeumBdgS5jeSDixXyjKtdfw==}
+  '@vercel/build-utils@12.2.0':
+    resolution: {integrity: sha512-6gcZ8mA/pW/mD/uUVEGHf+Y2i0Lfm+1qx/eol59SNftoce26LQhsGnz7fnBzspIJTjUbk7iB+gSm9ybe457FYQ==}
 
   '@vercel/error-utils@2.0.3':
     resolution: {integrity: sha512-CqC01WZxbLUxoiVdh9B/poPbNpY9U+tO1N9oWHwTl5YAZxcqXmmWJ8KNMFItJCUUWdY3J3xv8LvAuQv2KZ5YdQ==}
@@ -1524,8 +1536,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@vercel/node@5.3.26':
-    resolution: {integrity: sha512-9oJAmWviJsH82X748D2K0nutED9SpL2oJBLi6X4NmlSa5AXXoMf268iHp/VaDObB8b8OxVUA1Vr9EpjyaZ+ojA==}
+  '@vercel/node@5.5.0':
+    resolution: {integrity: sha512-jMDsJYf1Xf3FZoH/kAsjcHlv33jxyXlBGOCrOe3Ns9tnqlkobbXnkrkQR8JRUcnHCiAoQt4ia8uYgzGDFAAQUw==}
 
   '@vercel/static-config@3.1.2':
     resolution: {integrity: sha512-2d+TXr6K30w86a+WbMbGm2W91O0UzO5VeemZYBBUJbCjk/5FLLGIi8aV6RS2+WmaRvtcqNTn2pUA7nCOK3bGcQ==}
@@ -1973,6 +1985,20 @@ packages:
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
+  framer-motion@12.23.24:
+    resolution: {integrity: sha512-HMi5HRoRCTou+3fb3h9oTLyJGBxHfW+HnNE25tAXOvVx/IvwMHK0cx7IR4a2ZU6sh3IX1Z+4ts32PcYBOqka8w==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   geist@1.5.1:
     resolution: {integrity: sha512-mAHZxIsL2o3ZITFaBVFBnwyDOw+zNLYum6A6nIjpzCGIO8QtC3V76XF2RnZTyLx1wlDTmMDy8jg3Ib52MIjGvQ==}
     peerDependencies:
@@ -2173,6 +2199,12 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
+
+  motion-dom@12.23.23:
+    resolution: {integrity: sha512-n5yolOs0TQQBRUFImrRfs/+6X4p3Q4n1dUEqt/H58Vx7OW6RF+foWEgmTVDhIWJIMXOuNNL0apKH2S16en9eiA==}
+
+  motion-utils@12.23.6:
+    resolution: {integrity: sha512-eAWoPgr4eFEOFfg2WjIsMoqJTW6Z8MTUCgn/GZ3VRpClWBdnbjryiA3ZSNLyxCTmCQx4RmYX6jX1iWHbenUPNQ==}
 
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
@@ -2676,6 +2708,12 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@emotion/is-prop-valid@1.4.0':
+    dependencies:
+      '@emotion/memoize': 0.9.0
+
+  '@emotion/memoize@0.9.0': {}
 
   '@fastify/busboy@2.1.1': {}
 
@@ -3863,7 +3901,7 @@ snapshots:
       next: 15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react: 19.0.0
 
-  '@vercel/build-utils@12.1.2': {}
+  '@vercel/build-utils@12.2.0': {}
 
   '@vercel/error-utils@2.0.3': {}
 
@@ -3886,13 +3924,13 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vercel/node@5.3.26':
+  '@vercel/node@5.5.0':
     dependencies:
       '@edge-runtime/node-utils': 2.3.0
       '@edge-runtime/primitives': 4.1.0
       '@edge-runtime/vm': 3.2.0
       '@types/node': 16.18.11
-      '@vercel/build-utils': 12.1.2
+      '@vercel/build-utils': 12.2.0
       '@vercel/error-utils': 2.0.3
       '@vercel/nft': 0.30.1
       '@vercel/static-config': 3.1.2
@@ -4291,6 +4329,16 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
+  framer-motion@12.23.24(@emotion/is-prop-valid@1.4.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      motion-dom: 12.23.23
+      motion-utils: 12.23.6
+      tslib: 2.8.1
+    optionalDependencies:
+      '@emotion/is-prop-valid': 1.4.0
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
   geist@1.5.1(next@15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)):
     dependencies:
       next: 15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -4456,6 +4504,12 @@ snapshots:
       minipass: 7.1.2
 
   mkdirp@1.0.4: {}
+
+  motion-dom@12.23.23:
+    dependencies:
+      motion-utils: 12.23.6
+
+  motion-utils@12.23.6: {}
 
   mri@1.2.0: {}
 
