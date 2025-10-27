@@ -3,33 +3,54 @@ import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const metadata = {
-  title: "Blog • SSA YT-MP4/MP3 Downloader",
-  description: "Educational articles on video downloading, formats, quality, and mobile optimization.",
+  title: "Blog • SSA Video Creator Academy",
+  description: "Educational articles on video editing, YouTube growth, content creation, and best practices.",
 }
 
 export default function BlogIndexPage() {
   const posts = [
     {
-      slug: "legal-guide",
-      title: "YouTube Video Downloading: Complete Legal Guide",
+      slug: "editing-like-pro",
+      title: "How to Edit Videos Like a Pro",
       description:
-        "Understand fair use, download responsibly, and learn the basics of copyright so you stay safe and compliant.",
+        "Master professional video editing techniques, software recommendations, and workflow optimization for stunning results.",
+    },
+    {
+      slug: "youtube-seo-guide",
+      title: "YouTube SEO Complete Guide",
+      description:
+        "Learn keyword research, title optimization, descriptions, tags, and strategies to rank higher and get more views.",
+    },
+    {
+      slug: "format-best-practices",
+      title: "Video Format Best Practices",
+      description:
+        "Understand MP4, WebM, codecs, and platform-specific recommendations for optimal quality and compatibility.",
+    },
+    {
+      slug: "thumbnail-design-masterclass",
+      title: "Thumbnail Design Masterclass",
+      description:
+        "Create eye-catching thumbnails with design principles, color psychology, and A/B testing strategies.",
+    },
+    {
+      slug: "legal-guide",
+      title: "Fair Use & Copyright Guide",
+      description: "Understand copyright, fair use principles, and how to create content responsibly and ethically.",
     },
     {
       slug: "mp4-vs-mp3",
-      title: "MP4 vs MP3: Which Format Should You Choose?",
-      description:
-        "Compare video vs audio formats, common use cases, and quality tradeoffs so you pick the right format every time.",
+      title: "Video Formats Explained",
+      description: "Compare MP4 vs MP3, understand use cases, quality differences, and choose the right format.",
     },
     {
       slug: "video-quality-explained",
-      title: "Video Quality: 480p, 1080p, 4K Explained",
-      description:
-        "What resolution means, when to use each quality, and how file size and bandwidth factor into your decision.",
+      title: "Resolution & Quality Guide",
+      description: "Learn about 480p, 1080p, 4K, file sizes, and when to use each quality level.",
     },
     {
       slug: "convert-for-mobile",
-      title: "How to Convert Videos for Mobile Devices",
+      title: "Mobile Video Optimization",
       description: "Best formats for phones, compression tips, and optimization techniques for smooth mobile playback.",
     },
   ]
@@ -58,10 +79,10 @@ export default function BlogIndexPage() {
         {/* header */}
         <header className="text-center space-y-2">
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-primary neon-text text-balance">
-            SSA Blog
+            Video Creator Academy Blog
           </h1>
           <p className="text-muted-foreground">
-            Learn about downloading responsibly, choosing formats, picking the right quality, and optimizing for mobile.
+            Learn video editing, YouTube growth, content creation, and professional best practices.
           </p>
         </header>
 
