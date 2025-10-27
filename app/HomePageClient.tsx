@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, BookOpen, TrendingUp, Zap } from "lucide-react"
+import { ArrowRight, BookOpen, TrendingUp, Zap, ChevronDown } from "lucide-react"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -76,16 +76,23 @@ export function HomePageClient() {
           </motion.p>
 
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Link href="/learn">
-              <Button size="lg" className="w-full sm:w-auto">
-                Start Learning <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-            <Link href="/tools/video-utilities">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
-                Explore Tools
-              </Button>
-            </Link>
+            <div className="flex flex-col items-center gap-2">
+              <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
+                <ChevronDown className="h-5 w-5 text-sidebar-primary" />
+              </motion.div>
+              <Link href="/tools/video-utilities">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
+                  Explore Tools
+                </Button>
+              </Link>
+              <motion.p
+                className="text-xs text-muted-foreground mt-2"
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+              >
+                scroll down to start learning
+              </motion.p>
+            </div>
           </motion.div>
         </motion.div>
       </section>
