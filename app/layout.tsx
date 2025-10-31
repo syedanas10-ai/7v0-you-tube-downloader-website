@@ -13,9 +13,6 @@ export const metadata: Metadata = {
   title: "SSA Tools — Free Online Video & Audio Utilities",
   description: "Convert, download, and explore tips for creators. Fast, free YouTube to MP4/MP3 downloader and more.",
   generator: "v0.app",
-  verification: {
-    google: "YOUR_ADSENSE_VERIFICATION_CODE", // Replace with your actual AdSense code
-  },
 }
 
 export default function RootLayout({
@@ -26,9 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${GeistMono.variable} dark antialiased`}>
       <head>
+        {/* ✅ ADDED ADSENSE VERIFICATION META TAG */}
+        <meta name="google-adsense-account" content="ca-pub-3305001830130873" />
+        
         <script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3305001830130873"
           crossOrigin="anonymous"
         ></script>
         <script
